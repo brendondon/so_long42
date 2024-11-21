@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brendon <brendon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aconceic <aconceic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 16:06:53 by brendon           #+#    #+#             */
-/*   Updated: 2024/11/21 16:23:23 by brendon          ###   ########.fr       */
+/*   Updated: 2024/11/21 17:52:29 by aconceic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	map_size(t_data *data)
 {
 	int	i;
 	int	j;
-	
+
 	i = 0;
 	j = 0;
 	while (data->map[i] != NULL)
@@ -32,7 +32,7 @@ void	map_size(t_data *data)
 void	free_map(char **map)
 {
 	int	i;
-	
+
 	i = 0;
 	while (map[i] != NULL)
 	{
@@ -46,9 +46,9 @@ char	**copy_map(char **map)
 {
 	char	**new_map;
 	int		i;
-	
+
 	i = 0;
-	while(map[i] != NULL)
+	while (map[i] != NULL)
 		i++;
 	new_map = (char **)malloc(sizeof(char *) * (i + 1));
 	if (new_map == NULL)
@@ -67,6 +67,7 @@ char	**copy_map(char **map)
 	new_map[i] = NULL;
 	return (new_map);
 }
+
 void	find_player(t_data *data)
 {
 	int		i;
@@ -91,6 +92,7 @@ void	find_player(t_data *data)
 	}
 	return ;
 }
+
 void	find_exit(t_data *data)
 {
 	int		i;
