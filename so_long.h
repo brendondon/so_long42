@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aconceic <aconceic@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brendon <brendon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 17:45:03 by brendon           #+#    #+#             */
-/*   Updated: 2024/11/21 17:55:46 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/11/21 19:41:47 by brendon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,6 @@ int		verify_mapsize(t_data *data);
 void	open_window(t_data *data);
 void	map_size(t_data *data);
 void	find_exit(t_data *data);
+void	close_window(t_data *data);
 
 #endif

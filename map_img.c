@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_img.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aconceic <aconceic@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brendon <brendon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 10:37:03 by brendon           #+#    #+#             */
-/*   Updated: 2024/11/21 18:03:06 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/11/21 19:47:01 by brendon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	what_isit(t_data *data, int new_x, int new_y)
 		if (data->colectible == 0)
 		{
 			printf("You WIN\n");
-			mlx_destroy_window(data->mlx, data->win);
+			close_window(data);
 			exit(0);
 		}
 		data->map[data->player_x][data->player_y] = '0';
@@ -144,8 +144,7 @@ int	key_press(int keycode, t_data *data)
 		new_x += 1;
 	if (keycode == KEY_ESC)
 	{
-		mlx_destroy_window(data->mlx, data->win);
-		printf("Exit program\n");
+		close_window(data);
 		exit(0);
 	}
 	what_isit(data, new_x, new_y);
@@ -159,9 +158,21 @@ void	open_window(t_data *data)
 	data->win_width = data->mapsize_x * 40;
 	data->win_height = data->mapsize_y * 40;
 	data->win = mlx_new_window(data->mlx,
-			data->win_width, data->win_height, "Move Image");
+	data->win_width, data->win_height, "Move Image");
 	load_img(data);
 	put_image_to_window(data);
 	mlx_key_hook(data->win, key_press, data);
 	mlx_loop(data->mlx);
+}
+void 		close_window(t_data *data)
+{	
+	mlx_destroy_image(data->mlx, data->player_img);
+	mlx_destroy_image(data->mlx, data->wall_img);
+	mlx_destroy_image(data->mlx, data->exit_img);
+	mlx_destroy_image(data->mlx, data->colectible_img);
+	mlx_destroy_image(data->mlx, data->floor_img);
+	mlx_destroy_window(data->mlx, data->win);
+	mlx_destroy_display(data->mlx);
+	free(data->mlx);
+	free_map(data->map);
 }

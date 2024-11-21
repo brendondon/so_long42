@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aconceic <aconceic@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brendon <brendon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 19:57:10 by brendon           #+#    #+#             */
-/*   Updated: 2024/11/21 18:11:25 by aconceic         ###   ########.fr       */
+/*   Updated: 2024/11/21 18:46:40 by brendon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	init_map(t_data *data, char *argv)
 	data->map[i] = NULL;
 	close(fd);
 	find_exit(data);
+	free(line);
 	map_size(data);
 }
 
@@ -69,6 +70,7 @@ int	main(int argc, char **argv)
 	t_data	data;
 
 	init_map(&data, argv[1]);
+	data.colectible = 0;
 	if (verificate_char(&data) && quantity_things(&data)
 		&& verify_wall(&data) && verify_mapsize(&data) && verify_path(&data))
 	{
