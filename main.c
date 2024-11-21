@@ -6,11 +6,24 @@
 /*   By: brendon <brendon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 19:57:10 by brendon           #+#    #+#             */
-/*   Updated: 2024/11/21 18:46:40 by brendon          ###   ########.fr       */
+/*   Updated: 2024/11/21 19:52:27 by brendon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+static int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while ((i < n && s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i]))
+		i ++;
+	if (n == i)
+		return (0);
+	else
+		return ((int)(unsigned char)s1[i] - (int)(unsigned char)s2[i]);
+}
 
 size_t	size_mtz(char *argv)
 {
@@ -50,6 +63,8 @@ void	init_map(t_data *data, char *argv)
 		printf("Error\n");
 		exit(0);
 	}
+	if (ft_strncmp(argv + ft_strlen(argv) - 4, ".ber", ft_strlen(argv) - 4) != 0)
+    	return ;
 	line = get_next_line(fd);
 	while (line != NULL)
 	{
