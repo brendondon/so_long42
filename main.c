@@ -6,7 +6,7 @@
 /*   By: brendon <brendon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 19:57:10 by brendon           #+#    #+#             */
-/*   Updated: 2024/11/21 19:52:27 by brendon          ###   ########.fr       */
+/*   Updated: 2024/11/24 17:53:02 by brendon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,10 @@ void	init_map(t_data *data, char *argv)
 	i = 0;
 	fd = open(argv, O_RDONLY);
 	if (fd < 0)
-	{
-		printf("Error\n");
-		exit(0);
-	}
-	if (ft_strncmp(argv + ft_strlen(argv) - 4, ".ber", ft_strlen(argv) - 4) != 0)
-    	return ;
+		ft_exit("Error\n", 1);
+	if (ft_strncmp(argv + ft_strlen(argv) - 4,
+			".ber", ft_strlen(argv) - 4) != 0)
+		ft_exit("Error\n", 1);
 	line = get_next_line(fd);
 	while (line != NULL)
 	{
@@ -88,13 +86,8 @@ int	main(int argc, char **argv)
 	data.colectible = 0;
 	if (verificate_char(&data) && quantity_things(&data)
 		&& verify_wall(&data) && verify_mapsize(&data) && verify_path(&data))
-	{
 		open_window(&data);
-		printf("Mapa valido\n");
-	}
 	else
-	{
-		printf("Mapa invalido\n");
-	}
+		ft_exit("Mapa invalido\n", 1);
 	free_map(data.map);
 }

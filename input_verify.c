@@ -6,7 +6,7 @@
 /*   By: brendon <brendon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 17:43:45 by brendon           #+#    #+#             */
-/*   Updated: 2024/11/21 19:48:02 by brendon          ###   ########.fr       */
+/*   Updated: 2024/11/22 08:57:25 by brendon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,69 +112,4 @@ int	quantity_things(t_data *data)
 	if (data->player != 1 || data->exit != 1 || data->coletibles_total < 1)
 		return (0);
 	return (1);
-}
-
-int	verify_exit(char **map, int x, int y)
-{
-	if (map[x][y] == 'E')
-		return (1);
-	if (map[x][y] == '1' || map[x][y] == 'x')
-		return (0);
-	if (map[x][y] == '0' || map[x][y] == 'C' || map[x][y] == 'P')
-		map[x][y] = 'x';
-	return (verify_exit(map, x + 1, y) || verify_exit(map, x, y - 1)
-		|| verify_exit(map, x - 1, y) || verify_exit(map, x, y + 1));
-}
-
-void	verify_collect(char **map, int x, int y, t_data *data)
-{
-	if (map[x][y] == 'C')
-	{
-		data->colectible++;
-		map[x][y] = 'x';
-	}
-	else if (map[x][y] == '1' || map[x][y] == 'x')
-		return ;
-	else if (map[x][y] == '0' || map[x][y] == 'P' || map[x][y] == 'E')
-		map[x][y] = 'x';
-	verify_collect(map, x + 1, y, data);
-	verify_collect(map, x - 1, y, data);
-	verify_collect(map, x, y + 1, data);
-	verify_collect(map, x, y - 1, data);
-	return ;
-}
-
-int	verify_path(t_data *data)
-{
-	char	**map;
-	char	**map_c;
-	int		test;
-
-	test = 0;
-	map = copy_map(data->map);
-	if (map == NULL)
-		return (0);
-	map_c = copy_map(data->map);
-	if (map_c == NULL)
-	{
-		free_map(map_c);
-		return (0);
-	}
-	find_player(data);
-	verify_collect(map_c, data->player_x, data->player_y, data);
-	if (data->coletibles_total != data->colectible)
-	{
-		free_map(map);
-		free_map(map_c);
-		return (0);
-	}
-	if (verify_exit(map, data->player_x, data->player_y))
-	{
-		free_map(map);
-		free_map(map_c);
-		return (1);
-	}
-	free_map(map);
-	free_map(map_c);
-	return (0);
 }

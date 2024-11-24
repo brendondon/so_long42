@@ -6,7 +6,7 @@
 /*   By: brendon <brendon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 17:45:03 by brendon           #+#    #+#             */
-/*   Updated: 2024/11/21 19:41:47 by brendon          ###   ########.fr       */
+/*   Updated: 2024/11/24 17:41:18 by brendon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include "minilibx-linux/mlx.h"
-# include "mlx.h"
 # include <stdlib.h>
 # include <stdio.h>
 
@@ -80,5 +79,13 @@ void	open_window(t_data *data);
 void	map_size(t_data *data);
 void	find_exit(t_data *data);
 void	close_window(t_data *data);
-
+void	ft_exit(char *str, int i);
+void	ft_putstr(char *str);
+void	ft_move(t_data *data, int new_x, int new_y);
+void	put_image_to_window(t_data *data);
+void	load_img(t_data *data);
+void	draw_map(t_data *data);
+void	what_isit(t_data *data, int new_x, int new_y);
+int		key_press(int keycode, t_data *data);
+int		verify_cpath(t_data *data);
 #endif
