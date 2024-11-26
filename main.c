@@ -6,11 +6,17 @@
 /*   By: brendon <brendon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 19:57:10 by brendon           #+#    #+#             */
-/*   Updated: 2024/11/26 19:44:16 by brendon          ###   ########.fr       */
+/*   Updated: 2024/11/26 22:53:09 by brendon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	ft_berrors(char **map, char *str)
+{
+	free(map);
+	ft_exit(str, 1);
+}
 
 static int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
@@ -46,6 +52,9 @@ size_t	size_mtz(char *argv)
 		line = get_next_line(fd);
 	}
 	close(fd);
+	free(line);
+	if (i < 3)
+		ft_exit("Error\nTamanho do mapa invalido\n", 1);
 	return (i + 1);
 }
 
@@ -59,10 +68,10 @@ void	init_map(t_data *data, char *argv)
 	i = 0;
 	fd = open(argv, O_RDONLY);
 	if (fd < 0)
-		ft_exit("Error\n", 1);
-	if (ft_strncmp(argv + ft_strlen(argv) - 4,
+		ft_berrors(data->map, "Error\nArchivo invalido\n");
+	if (ft_strncmp(&argv[ft_strlen(argv) - 3],
 			".ber", ft_strlen(argv) - 4) != 0)
-		ft_exit("Error\n", 1);
+		ft_berrors(data->map, "Error\n falta o ber\n");
 	line = get_next_line(fd);
 	while (line != NULL)
 	{
