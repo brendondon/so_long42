@@ -6,7 +6,7 @@
 /*   By: brendon <brendon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 16:06:53 by brendon           #+#    #+#             */
-/*   Updated: 2024/11/21 18:42:50 by brendon          ###   ########.fr       */
+/*   Updated: 2024/11/26 19:41:56 by brendon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	map_size(t_data *data)
 	int	j;
 
 	i = 0;
-	j = 0;
 	while (data->map[i] != NULL)
 	{
+		j = 0;
 		while (data->map[i][j] != '\0')
 			j++;
 		i++;

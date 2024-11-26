@@ -6,7 +6,7 @@
 /*   By: brendon <brendon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 19:57:10 by brendon           #+#    #+#             */
-/*   Updated: 2024/11/24 17:53:02 by brendon          ###   ########.fr       */
+/*   Updated: 2024/11/26 19:44:16 by brendon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,7 @@ void	init_map(t_data *data, char *argv)
 	}
 	data->map[i] = NULL;
 	close(fd);
-	find_exit(data);
 	free(line);
-	map_size(data);
 }
 
 int	main(int argc, char **argv)
@@ -83,11 +81,16 @@ int	main(int argc, char **argv)
 	t_data	data;
 
 	init_map(&data, argv[1]);
+	find_exit(&data);
+	map_size(&data);
 	data.colectible = 0;
 	if (verificate_char(&data) && quantity_things(&data)
 		&& verify_wall(&data) && verify_mapsize(&data) && verify_path(&data))
 		open_window(&data);
 	else
+	{
+		free_map(data.map);
 		ft_exit("Mapa invalido\n", 1);
+	}
 	free_map(data.map);
 }
