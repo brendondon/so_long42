@@ -6,7 +6,7 @@
 /*   By: brendon <brendon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 09:04:11 by brendon           #+#    #+#             */
-/*   Updated: 2024/11/28 00:04:37 by brendon          ###   ########.fr       */
+/*   Updated: 2024/11/28 20:10:09 by brendon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ void	open_window(t_data *data)
 
 void	ft_move(t_data *data, int new_x, int new_y)
 {
+	ft_putnbr(data->step++);
+	write(1, "\n", 1);
 	data->map[data->player_x][data->player_y] = '0';
 	data->map[new_x][new_y] = 'P';
 	data->player_x = new_x;

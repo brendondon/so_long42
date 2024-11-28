@@ -6,7 +6,7 @@
 /*   By: brendon <brendon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 10:37:03 by brendon           #+#    #+#             */
-/*   Updated: 2024/11/27 23:49:50 by brendon          ###   ########.fr       */
+/*   Updated: 2024/11/28 20:08:04 by brendon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,8 +114,6 @@ int	key_press(int keycode, t_data *data)
 		exit(0);
 	}
 	what_isit(data, new_x, new_y);
-	if (new_x == data->player_x || new_y == data->player_y)
-		ft_putnbr(++data->step);
 	put_image_to_window(data);
 	return (0);
 }
