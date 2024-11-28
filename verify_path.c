@@ -6,7 +6,7 @@
 /*   By: brendon <brendon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 08:56:31 by brendon           #+#    #+#             */
-/*   Updated: 2024/11/22 09:16:49 by brendon          ###   ########.fr       */
+/*   Updated: 2024/11/27 22:57:21 by brendon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,19 @@ int	verify_cpath(t_data *data)
 	}
 	free_map(map);
 	return (1);
+}
+
+void	ft_putnbr(int n)
+{
+	char	c;
+
+	if (n < 0)
+	{
+		write(1, "-", 1);
+		n = n * -1;
+	}
+	if (n > 9)
+		ft_putnbr(n / 10);
+	c = n % 10 + '0';
+	write(1, &c, 1);
 }

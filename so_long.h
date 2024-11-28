@@ -6,7 +6,7 @@
 /*   By: brendon <brendon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 17:45:03 by brendon           #+#    #+#             */
-/*   Updated: 2024/11/24 17:41:18 by brendon          ###   ########.fr       */
+/*   Updated: 2024/11/27 23:48:18 by brendon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@
 # define KEY_UP    65362
 # define KEY_DOWN  65364
 # define KEY_ESC   65307
+#
+# define KEY_W     119
+# define KEY_A     97
+# define KEY_S     115
+# define KEY_D     100
 # define BUFFER_SIZE 10
 
 typedef struct s_data
@@ -54,6 +59,7 @@ typedef struct s_data
 	int		player_y;
 	int		exit_x;
 	int		exit_y;
+	int		step;
 }	t_data;
 
 char	*ft_strjoin(char *s1, char *s2);
@@ -78,7 +84,7 @@ int		verify_mapsize(t_data *data);
 void	open_window(t_data *data);
 void	map_size(t_data *data);
 void	find_exit(t_data *data);
-void	close_window(t_data *data);
+int		close_window(t_data *data);
 void	ft_exit(char *str, int i);
 void	ft_putstr(char *str);
 void	ft_move(t_data *data, int new_x, int new_y);
@@ -88,4 +94,5 @@ void	draw_map(t_data *data);
 void	what_isit(t_data *data, int new_x, int new_y);
 int		key_press(int keycode, t_data *data);
 int		verify_cpath(t_data *data);
+void	ft_putnbr(int n);
 #endif

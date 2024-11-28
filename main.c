@@ -6,7 +6,7 @@
 /*   By: brendon <brendon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 19:57:10 by brendon           #+#    #+#             */
-/*   Updated: 2024/11/26 22:53:09 by brendon          ###   ########.fr       */
+/*   Updated: 2024/11/27 23:06:21 by brendon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	init_map(t_data *data, char *argv)
 	fd = open(argv, O_RDONLY);
 	if (fd < 0)
 		ft_berrors(data->map, "Error\nArchivo invalido\n");
-	if (ft_strncmp(&argv[ft_strlen(argv) - 3],
+	if (ft_strncmp(&argv[ft_strlen(argv) - 4],
 			".ber", ft_strlen(argv) - 4) != 0)
 		ft_berrors(data->map, "Error\n falta o ber\n");
 	line = get_next_line(fd);
@@ -88,7 +88,8 @@ void	init_map(t_data *data, char *argv)
 int	main(int argc, char **argv)
 {
 	t_data	data;
-
+	
+	data.step = 0;
 	init_map(&data, argv[1]);
 	find_exit(&data);
 	map_size(&data);

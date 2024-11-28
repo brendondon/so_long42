@@ -6,7 +6,7 @@
 /*   By: brendon <brendon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 09:04:11 by brendon           #+#    #+#             */
-/*   Updated: 2024/11/26 20:43:09 by brendon          ###   ########.fr       */
+/*   Updated: 2024/11/28 00:04:37 by brendon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_exit(char *str, int i)
 	exit(i);
 }
 
-void	close_window(t_data *data)
+int	close_window(t_data *data)
 {
 	mlx_destroy_image(data->mlx, data->player_img);
 	mlx_destroy_image(data->mlx, data->wall_img);
@@ -38,6 +38,7 @@ void	close_window(t_data *data)
 	mlx_destroy_display(data->mlx);
 	free(data->mlx);
 	free_map(data->map);
+	exit(0);
 }
 
 void	open_window(t_data *data)
@@ -49,6 +50,7 @@ void	open_window(t_data *data)
 			data->win_height, "Move Image");
 	load_img(data);
 	put_image_to_window(data);
+	mlx_hook(data->win, 17, 0, close_window, data);
 	mlx_key_hook(data->win, key_press, data);
 	mlx_loop(data->mlx);
 }
