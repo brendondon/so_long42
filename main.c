@@ -6,7 +6,7 @@
 /*   By: brendon <brendon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 19:57:10 by brendon           #+#    #+#             */
-/*   Updated: 2024/11/28 20:17:28 by brendon          ###   ########.fr       */
+/*   Updated: 2024/11/28 20:29:06 by brendon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,18 +89,24 @@ int	main(int argc, char **argv)
 {
 	t_data	data;
 
-	data.step = 0;
-	init_map(&data, argv[1]);
-	find_exit(&data);
-	map_size(&data);
-	data.colectible = 0;
-	if (verificate_char(&data) && quantity_things(&data) && argc == 2
-		&& verify_wall(&data) && verify_mapsize(&data) && verify_path(&data))
-		open_window(&data);
-	else
+	if (argc == 2)
 	{
+		data.step = 0;
+		init_map(&data, argv[1]);
+		find_exit(&data);
+		map_size(&data);
+		data.colectible = 0;
+		if (verificate_char(&data) && quantity_things(&data)
+			&& verify_wall(&data) && verify_mapsize(&data)
+			&& verify_path(&data))
+			open_window(&data);
+		else
+		{
+			free_map(data.map);
+			ft_exit("Error\n", 1);
+		}
 		free_map(data.map);
-		ft_exit("Error\n", 1);
 	}
-	free_map(data.map);
+	else
+		ft_exit("Error\n", 1);
 }
