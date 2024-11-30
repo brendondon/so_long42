@@ -6,7 +6,7 @@
 /*   By: brendon <brendon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 10:37:03 by brendon           #+#    #+#             */
-/*   Updated: 2024/11/28 20:08:04 by brendon          ###   ########.fr       */
+/*   Updated: 2024/11/30 12:43:04 by brendon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ void	put_image_to_window(t_data *data)
 
 void	what_isit(t_data *data, int new_x, int new_y)
 {
+	if (data->map[new_x][new_y] == '1')
+		return ;
 	if (data->map[new_x][new_y] == 'E')
 	{
 		if (data->colectible == 0)

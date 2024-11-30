@@ -6,7 +6,7 @@
 /*   By: brendon <brendon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 19:57:10 by brendon           #+#    #+#             */
-/*   Updated: 2024/11/28 20:29:06 by brendon          ###   ########.fr       */
+/*   Updated: 2024/11/30 12:45:04 by brendon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int	main(int argc, char **argv)
 
 	if (argc == 2)
 	{
-		data.step = 0;
+		data.step = 1;
 		init_map(&data, argv[1]);
 		find_exit(&data);
 		map_size(&data);
