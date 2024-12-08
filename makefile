@@ -24,6 +24,7 @@ MLX = $(MLX_DIR)libmlx.a
 # Link against required libraries
 MLXFLAGS = -L$(MLX_DIR) -lmlx -lX11 -lXext -lm
 
+CC = @cc
 # Build the executable
 all: $(NAME)
 
@@ -46,11 +47,12 @@ $(MLX_DIR):
 
 # Comando de limpeza dos arquivos binários
 clean:
-	rm -f $(OBJS)
+	@rm -f $(OBJS)
 
 # Comando de limpeza total (apagar binários e recompilar)
 fclean: clean
-	rm -f $(NAME)
-	echo "\033[1;31m[ ✔ ] $(NAME) removed!\033[0m"
+	@rm -f $(NAME)
+	@rm -rf $(MLX_DIR)
+	@echo "\033[1;31m[ ✔ ] $(NAME) removed!\033[0m"
 
 re: fclean all

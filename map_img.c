@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_img.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brendon <brendon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: breda-si <breda-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 10:37:03 by brendon           #+#    #+#             */
-/*   Updated: 2024/11/30 12:43:04 by brendon          ###   ########.fr       */
+/*   Updated: 2024/12/08 17:32:37 by breda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,8 @@ void	what_isit(t_data *data, int new_x, int new_y)
 	{
 		if (data->colectible == 0)
 		{
-			close_window(data);
 			ft_exit("You win\n", 0);
+			close_window(data);
 		}
 		ft_move(data, new_x, new_y);
 	}
