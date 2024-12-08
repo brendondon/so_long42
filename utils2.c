@@ -3,27 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brendon <brendon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: breda-si <breda-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 09:04:11 by brendon           #+#    #+#             */
-/*   Updated: 2024/11/28 20:10:09 by brendon          ###   ########.fr       */
+/*   Updated: 2024/12/08 18:09:04 by breda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_putstr(char *str)
+void	ft_putstr_fd(char *str, int fd)
 {
 	while (*str)
 	{
-		write(1, str, 1);
+		write(fd, str, 1);
 		str++;
 	}
 }
 
 void	ft_exit(char *str, int i)
 {
-	ft_putstr(str);
+	if (i == 1)
+		ft_putstr_fd(str, 2);
+	else
+		ft_putstr_fd(str, 1);
 	exit(i);
 }
 
@@ -47,7 +50,7 @@ void	open_window(t_data *data)
 	data->win_width = data->mapsize_x * 40;
 	data->win_height = data->mapsize_y * 40;
 	data->win = mlx_new_window(data->mlx, data->win_width,
-			data->win_height, "Move Image");
+			data->win_height, "So_long");
 	load_img(data);
 	put_image_to_window(data);
 	mlx_hook(data->win, 17, 0, close_window, data);

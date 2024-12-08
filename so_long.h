@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brendon <brendon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: breda-si <breda-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 17:45:03 by brendon           #+#    #+#             */
-/*   Updated: 2024/11/27 23:48:18 by brendon          ###   ########.fr       */
+/*   Updated: 2024/12/08 17:47:17 by breda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	map_size(t_data *data);
 void	find_exit(t_data *data);
 int		close_window(t_data *data);
 void	ft_exit(char *str, int i);
-void	ft_putstr(char *str);
+void	ft_putstr_fd(char *str, int fd);
 void	ft_move(t_data *data, int new_x, int new_y);
 void	put_image_to_window(t_data *data);
 void	load_img(t_data *data);

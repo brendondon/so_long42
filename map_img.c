@@ -6,7 +6,7 @@
 /*   By: breda-si <breda-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 10:37:03 by brendon           #+#    #+#             */
-/*   Updated: 2024/12/08 17:32:37 by breda-si         ###   ########.fr       */
+/*   Updated: 2024/12/08 18:06:47 by breda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,23 @@ void	load_img(t_data *data)
 	data->wall_img = mlx_xpm_file_to_image(data->mlx, "img/wall.xpm",
 			&data->img_width, &data->img_height);
 	if (!data->wall_img)
-		ft_exit("Error loading wall image\n", 1);
+		ft_exit("Error\nloading wall image\n", 1);
 	data->floor_img = mlx_xpm_file_to_image(data->mlx, "img/ground.xpm",
 			&data->img_width, &data->img_height);
 	if (!data->floor_img)
-		ft_exit("Error loading floor image\n", 1);
+		ft_exit("Error\nloading floor image\n", 1);
 	data->player_img = mlx_xpm_file_to_image(data->mlx, "img/player.xpm",
 			&data->img_width, &data->img_height);
 	if (!data->player_img)
-		ft_exit("Error loading player image\n", 1);
+		ft_exit("Error\nloading player image\n", 1);
 	data->exit_img = mlx_xpm_file_to_image(data->mlx, "img/exit.xpm",
 			&data->img_width, &data->img_height);
 	if (!data->exit_img)
-		ft_exit("Error loading exit image\n", 1);
+		ft_exit("Error\nloading exit image\n", 1);
 	data->colectible_img = mlx_xpm_file_to_image(data->mlx, "img/c1.xpm",
 			&data->img_width, &data->img_height);
 	if (!data->colectible_img)
-		ft_exit("Error loading colectible image\n", 1);
+		ft_exit("Error\nloading colectible image\n", 1);
 }
 
 void	draw_map(t_data *data)
@@ -79,7 +79,7 @@ void	what_isit(t_data *data, int new_x, int new_y)
 	{
 		if (data->colectible == 0)
 		{
-			ft_exit("You win\n", 0);
+			ft_putstr_fd("You win!\n", 1);
 			close_window(data);
 		}
 		ft_move(data, new_x, new_y);

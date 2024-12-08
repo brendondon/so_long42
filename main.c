@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brendon <brendon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: breda-si <breda-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 19:57:10 by brendon           #+#    #+#             */
-/*   Updated: 2024/11/30 12:45:04 by brendon          ###   ########.fr       */
+/*   Updated: 2024/12/08 17:53:03 by breda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,10 +103,10 @@ int	main(int argc, char **argv)
 		else
 		{
 			free_map(data.map);
-			ft_exit("Error\n", 1);
+			ft_exit("Error\nMapa invalid", 1);
 		}
 		free_map(data.map);
 	}
 	else
-		ft_exit("Error\n", 1);
+		ft_exit("Error\nArguments quantity invalid", 1);
 }
