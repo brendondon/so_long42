@@ -6,7 +6,7 @@
 /*   By: breda-si <breda-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 17:45:03 by brendon           #+#    #+#             */
-/*   Updated: 2024/12/08 17:47:17 by breda-si         ###   ########.fr       */
+/*   Updated: 2024/12/09 18:29:05 by breda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@
 # define KEY_UP    65362
 # define KEY_DOWN  65364
 # define KEY_ESC   65307
-#
 # define KEY_W     119
 # define KEY_A     97
 # define KEY_S     115
