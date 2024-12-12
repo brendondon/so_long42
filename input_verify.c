@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_verify.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brendon <brendon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: breda-si <breda-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 17:43:45 by brendon           #+#    #+#             */
-/*   Updated: 2024/11/22 08:57:25 by brendon          ###   ########.fr       */
+/*   Updated: 2024/12/12 18:16:58 by breda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ int	verify_mapsize(t_data *data)
 		j = 0;
 		i++;
 	}
-	if (data->mapsize_x == data->mapsize_y)
-		return (0);
 	return (1);
 }
 
